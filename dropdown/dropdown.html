@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        body, html {
+            width: 100%;
+            position: relative;
+        }
+        .select {
+            display: inline-block;
+            border: 1px solid #e0e0e0;
+            border-radius: 10px;
+            padding: 7px 20px;
+        }
+        .select:not(:first-child) {
+            margin-left: 1px;
+        }
+        .dropdown-menu {
+            background-color: #fff;
+            position: absolute;
+            display: none;
+            width: 200px;
+            box-shadow: 0 12px 24px rgba(7, 17, 27, .2);
+        }
+        .dropdown-menu > ul {
+            list-style: none;
+            width: 100%;
+        }
+        .dropdown-menu > ul > li {
+            box-sizing: border-box;
+            width: 100%;
+            padding: 5px;
+            text-align: center;
+        }
+        .dropdown-menu > ul > li:hover {
+            background-color: #aaa;
+        }
+    </style>
+</head>
+<body>
+    <div style="position: absolute;top: 50px;left: 0;">
+        <span class="select">1</span>
+        <span class="select">2</span>
+        <span class="select">3</span>
+        <br>
+        <br>
+        <span class="select">4</span>
+        <span class="select">5</span>
+        <span class="select">6</span>
+        <br>
+        <br>
+        <span class="select">7</span>
+        <br>
+        <br>
+        <span class="select">8</span>
+        <span class="select">9</span>
+        <br>
+        <br>
+        <span class="select">10</span>
+    </div>
+    <div class="dropdown-menu">
+        <ul>
+            <li>a</li>
+            <li>b</li>
+            <li>c</li>
+            <li>d</li>
+            <li>e</li>
+            <li>f</li>
+        </ul>
+    </div>
+    <script>
+        window.onload = () => {
+            const dropdown = document.querySelector('.dropdown-menu');
+            window.addEventListener('click', e => {
+                const target = e.target;
+                if (target.matches('.select')) {
+                    console.log(target.offsetWidth, target.offsetHeight)
+                    console.log(target.offsetLeft, target.offsetTop)
+                    dropdown.style.top = target.offsetHeight + target.offsetTop + 'px';
+                    dropdown.style.left = target.offsetLeft + 'px';
+                    dropdown.style.display = 'block';
+                } else dropdown.style.display = 'none';
+            })
+        }
+    </script>
+</body>
+</html>

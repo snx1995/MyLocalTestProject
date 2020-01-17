@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .table {
+            width: 100%;
+        }
+        .tr {
+            display: flex;
+            width: 100%;
+            border-bottom: 1px solid #999;
+            border-right: 1px solid #999;
+        }
+        .tr:first-child {
+            border-top: 1px solid #999;
+        }
+        .td {
+            height: 34px;
+            width: 25%;
+            border-left: 1px solid #999;
+        }
+    </style>
+</head>
+<body>
+    <div class="table">
+        <div class="tr">
+            <div class="td"></div>
+            <div class="td"></div>
+            <div class="td"></div>
+            <div class="td"></div>
+        </div>
+        <div class="tr">
+            <div class="td"></div>
+            <div class="td"></div>
+            <div class="td"></div>
+            <div class="td"></div>
+        </div>
+        <div class="tr">
+            <div class="td"></div>
+            <div class="td"></div>
+            <div class="td"></div>
+            <div class="td"></div>
+        </div>
+        <div class="tr">
+            <div class="td"></div>
+            <div class="td"></div>
+            <div class="td"></div>
+            <div class="td"></div>
+        </div>
+    </div>
+    <script>
+        const table = document.querySelector('.table');
+        table.addEventListener('dblclick', e => {
+            const target = e.target;
+            if (target.matches('.td')) {
+                target.setAttribute('contenteditable', 'true');
+                target.focus();
+            }
+        })
+
+        table.addEventListener('focusout', e => {
+            const target = e.target;
+            if (target.matches('.td')) {
+                target.setAttribute('contenteditable', 'false');
+            }
+        })
+
+        table.addEventListener('input', e => {
+            const target = e.target;
+            if (target.matches('.td')) {
+                console.log(target.innerText);
+            }
+        })
+    </script>
+</body>
+</html>

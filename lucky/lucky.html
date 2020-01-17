@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        body, html {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+        html {
+            background: radial-gradient(circle at top, #34495e, #2c3e50);
+        }
+        body {
+            background: radial-gradient(circle at top, #3498db, transparent), radial-gradient(circle at bottom, #1abc9c, transparent);
+        }
+        .lucky-button {
+            position: absolute;
+            font-size: 10vw;
+            bottom: 5vh;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60vw;
+            height: 60vw;
+            border-radius: 50%;
+            color: #fff;
+            text-align: center;
+            line-height: 60vw;
+            background: radial-gradient(circle at center, #e74c3c, #e67e22, transparent);
+            transition: transform .2s;
+        }
+        .lucky-button:active {
+            transform: translateX(-50%) scale(.9);
+        }
+    </style>
+</head>
+<body>
+    <div class="lucky-button">
+        LUCKY
+    </div>
+    <script>
+        // window.onload = () => {
+        //     const total = document.querySelector('#total');
+        //     const success = document.querySelector('#success');
+        //     const probability = document.querySelector('#probability');
+        //     const num = document.querySelector('#num');
+        //     const button = document.querySelector('button');
+        //     let count = 0;
+        //     let succ = 0;
+        //     button.addEventListener('click', e => {
+        //         total.innerText = ++count;
+        //         const rand = Math.round(Math.random() * 100);
+        //         if (rand == 0) succ ++;
+        //         success.innerText = succ;
+        //         num.innerText = rand;
+        //         probability.innerText = (succ / count).toFixed(4);
+        //     })
+        // }
+    </script>
+</body>
+</html>

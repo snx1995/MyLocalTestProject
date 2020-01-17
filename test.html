@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body, html {
+            padding: 0;
+            margin: 0;
+            width: 100%;
+            height: 100%;
+        }
+        .content {
+            height: 100px;
+            width: 100%;
+            border-bottom: 1px solid #333;
+            position: relative;
+        }
+        .content::before {
+            content: "我是有底线的";
+            padding: 5px 10px;
+            font-size: 12px;
+            background-color: #fff;
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .content2 {
+            margin-top: 50px;
+        }
+        .tabs {
+            width: 100%;
+            position: relative;
+            border-top: 1px solid #333;
+        }
+        .tabs-content {
+            z-index: 0;
+            position: absolute;
+            bottom: 100%;
+        }
+        .tab {
+            border: 1px solid #333;
+            font-size: 12px;;
+            color: #333;
+            /* border-bottom-color: transparent; */
+            padding: 5px 10px;
+            border-radius: 5px 5px 0 0;
+            display: inline-block;
+            background-color: #fff;
+            cursor: pointer;
+        }
+        .tab.active {
+            border-bottom-color: transparent;
+            box-shadow: 0 -4px 8px rgba(7, 17, 27, .1);
+        }
+    </style>
+    <style>
+        .banyq-select {
+            display: inline-block;
+            position: relative;
+        }
+        .banyq-select input {
+            display: inline-block;
+            border: 1px solid #aaa;
+            border-radius: 5px;
+            width: 200px;
+            height: 1.5em;
+            outline: none;
+        }
+        .banyq-select input:focus + ul, .banyq-select input:active + ul {
+            display: block;
+        }
+        .banyq-select ul {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            display: none;
+            list-style: none;
+            box-shadow: 0 12px 24px rgba(7, 17, 27, .2);
+            background-color: #fff;
+        }
+        .banyq-select ul li {
+            padding: 10px 5px;
+            cursor: pointer;
+        }
+        .banyq-select ul li:hover {
+            background-color: #999;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+
+    </div>
+    <div class="content2">
+        <div class="tabs">
+            <div class="tabs-content">
+                <div class="tab active">tab1</div>
+                <div class="tab">tab2</div>
+                <div class="tab">tab3</div>
+                <div class="tab">tab4</div>
+                <div class="tab">tab5</div>
+                <div class="tab">tab6</div>
+                <div class="tab">tab7</div>
+                <div class="tab">tab8</div>
+                <div class="tab">tab9</div>
+            </div>
+        </div>
+    </div>
+    <div class="banyq-select">
+        <input type="text" readonly>
+        <ul>
+            <li class="banyq-option" data-value="1">1</li>
+            <li class="banyq-option" data-value="2">2</li>
+            <li class="banyq-option" data-value="3">3</li>
+            <li class="banyq-option" data-value="4">4</li>
+        </ul>
+    </div>
+    <div>
+        <input type="email" multiple>
+    </div>
+    <script>
+        const tabContent = document.querySelector('.tabs-content');
+        tabContent.addEventListener('click', event => {
+            const target = event.target;
+            if (target.matches('.tab.active')) return;
+            else if (target.matches('.tab')) {
+                document.querySelector('.tab.active').classList.remove('active');
+                target.classList.add('active');
+            }
+        })
+
+        const select = document.querySelector('.banyq-select');
+        select.addEventListener('click', handleSelectClick);
+        function handleSelectClick(e) {
+            const target = e.target;
+            console.log(target);
+            const input = document.querySelector('.banyq-select input');
+            input.value = target.dataset.value
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+{
+  "name": "localtest",
+  "version": "1.0.0",
+  "description": "a test project",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://www.bantasy.top"
+  },
+  "keywords": [
+    "local",
+    "test"
+  ],
+  "author": "banyq",
+  "license": "ISC",
+  "dependencies": {
+    "mysql": "^2.17.1"
+  }
+}

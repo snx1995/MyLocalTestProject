@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .chessboard-inner {
+            fill: none;
+            stroke: #aaa;
+            stroke-width: 1px;
+        }
+        .chessboard-border {
+            fill: none;
+            stroke: #999;
+            stroke-width: 2px;
+        }
+        .chess {
+            fill: #f0f0f0;
+            cursor: pointer;
+            transition: transform .5s;
+        }
+        .chess:hover {
+            /* transform: translate(350, 350) scale(1.2) translate(-350, -350); */
+        }
+    </style>
+</head>
+<body>
+    <svg width="700" height="700">
+        <path d="M200 50V650M350 50V650M500 50V650M50 200H650M50 350H650M50 500H650" class="chessboard-inner"/>
+        <path d="M50 50H650V650H50V50" class="chessboard-border"/>
+        <circle cx="50" cy="50" r="50" class="chess" transform="translate(350, 350) scale(.5) translate(-350, -350)"/>
+    </svg>
+</body>
+</html>

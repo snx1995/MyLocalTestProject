@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <button>close</button>
+    <script>
+        const PageVar = {
+            closeable: false
+        }
+        document.querySelector('button').addEventListener('click', event => {
+            console.log(12312312)
+            if (PageVar.closeable) {
+                window.top.close();
+            } else {
+                console.log('can not close window now')
+            }
+        })
+        window.addEventListener('message', (event) => {
+            const data = event.data;
+            switch(data.type) {
+                case 'closeable':
+                    PageVar.closeable = true;
+                    break;
+            }
+        })
+    </script>
+</body>
+</html>
