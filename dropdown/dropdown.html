@@ -19,6 +19,8 @@
             border: 1px solid #e0e0e0;
             border-radius: 10px;
             padding: 7px 20px;
+            box-sizing: border-box;
+            width: 200px;
         }
         .select:not(:first-child) {
             margin-left: 1px;
@@ -82,10 +84,15 @@
             window.addEventListener('click', e => {
                 const target = e.target;
                 if (target.matches('.select')) {
-                    console.log(target.offsetWidth, target.offsetHeight)
-                    console.log(target.offsetLeft, target.offsetTop)
-                    dropdown.style.top = target.offsetHeight + target.offsetTop + 'px';
-                    dropdown.style.left = target.offsetLeft + 'px';
+                    let top = 0, left = 0;
+                    let el = target;
+                    do {
+                        top += el.offsetTop;
+                        left += el.offsetLeft;
+                        el = el.offsetParent;
+                    } while (el.offsetParent != null);
+                    dropdown.style.top = target.offsetHeight + top + 'px';
+                    dropdown.style.left = left + 'px';
                     dropdown.style.display = 'block';
                 } else dropdown.style.display = 'none';
             })
